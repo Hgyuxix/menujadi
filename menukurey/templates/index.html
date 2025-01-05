@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coffee Shop</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to Coffee Shop</h1>
+      <h2>Menu</h2>
+
+      <!-- Loop untuk menampilkan menu -->
+      {% for category, items in menu.items() %}
+      <h3>{{ category.capitalize() }}</h3>
+      <ul>
+        {% for item, price in items.items() %}
+        <li>
+          <span>{{ item }} - Rp{{ price }}</span>
+          <form method="POST" action="{{ url_for('add_to_order') }}">
+            <input type="number" name="quantity" min="1" value="1" />
+            <input type="hidden" name="category" value="{{ category }}" />
+            <input type="hidden" name="item" value="{{ item }}" />
+            <button type="submit">Add</button>
+          </form>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endfor %}
+
+      <h2>Your Order</h2>
+      <div class="order-summary">
+        {% if order %}
+        <ul>
+          {% for item, quantity in order.items() %}
+          <li>
+            <span
+              >{{ item }} x{{ quantity }} - Rp{% for category, items in
+              menu.items() if item in items %}{{ items[item] * quantity }}{%
+              endfor %}</span
+            >
+            <a href="{{ url_for('remove_item', item=item) }}">Remove</a>
+          </li>
+          {% endfor %}
+        </ul>
+        <a href="{{ url_for('checkout') }}">Checkout</a>
+        {% else %}
+        <p>No items in your order.</p>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>

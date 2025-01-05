@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Checkout</h1>
+      <h2>Your Order</h2>
+      <ul>
+        {% for item, quantity in order.items() %}
+        <li>
+          <span
+            >{{ item }} x{{ quantity }} - Rp{% for category, items in
+            menu.items() if item in items %}{{ items[item] * quantity }}{%
+            endfor %}</span
+          >
+        </li>
+        {% endfor %}
+      </ul>
+      <h3>Total Price: Rp{{ total_price }}</h3>
+
+      <div class="checkout">
+        <h2>Payment</h2>
+        <p>Scan the QR Code below to make a payment:</p>
+        <img
+          src="{{ url_for('static', filename='qr_payment.jpg') }}"
+          alt="QR Code for Payment"
+        />
+        <a href="{{ url_for('index') }}">Back to Menu</a>
+      </div>
+    </div>
+  </body>
+</html>

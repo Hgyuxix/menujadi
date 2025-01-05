@@ -1,0 +1,128 @@
+/* Reset CSS */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+/* Kontainer Utama */
+.container {
+  width: 90%;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Judul */
+h1,
+h2,
+h3 {
+  color: #444;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+/* Daftar Menu */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eaeaea;
+}
+
+ul li:last-child {
+  border-bottom: none;
+}
+
+/* Formulir dan Tombol */
+form {
+  display: flex;
+  align-items: center;
+}
+
+input[type="number"] {
+  width: 60px;
+  padding: 5px;
+  margin: 0 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+}
+
+button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Pesanan */
+.order-summary {
+  margin: 20px 0;
+  border-top: 2px solid #4caf50;
+  padding-top: 20px;
+}
+
+.order-summary ul {
+  margin-top: 10px;
+}
+
+.order-summary a {
+  color: #ff5722;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.order-summary a:hover {
+  color: #e64a19;
+}
+
+/* Checkout Section */
+.checkout {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.checkout img {
+  width: 200px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.checkout a {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  background-color: #2196f3;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.checkout a:hover {
+  background-color: #1976d2;
+}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran QRIS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Pembayaran QRIS</h1>
+        <p>Total yang harus dibayar: Rp{{ total_price }}</p>
+        <p>Scan QR Code berikut untuk membayar:</p>
+        <img src="{{ qris_url }}" alt="QRIS Payment">
+        <p>Setelah membayar, silakan kembali ke halaman utama.</p>
+        <a href="{{ url_for('index') }}">Kembali ke Beranda</a>
+    </div>
+</body>
+</html>
